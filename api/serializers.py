@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Exercise, WorkoutPlan, WorkoutPlanExercise, ProgressTracking
+from django.contrib.auth.models import User
 
 
 class ExerciseSerializer(serializers.ModelSerializer):
@@ -10,17 +11,28 @@ class ExerciseSerializer(serializers.ModelSerializer):
 
 class WorkoutPlanSerializer(serializers.ModelSerializer):
     class Meta:
-        name = WorkoutPlan
+        model = WorkoutPlan
         fields = '__all__'
 
 
 # class WorkoutPlanExerciseSerializer(serializers.ModelSerializer):
 #     class Meta:
-#         name = WorkoutPlanExercise
+#         model = WorkoutPlanExercise
 #         fields = '__all__'
 
 
 class ProgressTrackingSerializer(serializers.ModelSerializer):
     class Meta:
-        name = ProgressTracking
+        model = ProgressTracking
         fields = '__all__'
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'password', 'email']
+        extra_kwargs = {'password': {'write_only': True}}
+
+    def create(self, validated_data):
+        user = User.objects.create_user(**validated_data)
+        return user
