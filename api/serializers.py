@@ -21,7 +21,7 @@ class WorkoutPlanSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = WorkoutPlan
-        fields = ['name', 'exercises', 'user']
+        fields = ['id', 'name', 'exercises', 'user']
         read_only_fields = ['user']
 
     def perform_create(self, serializer):
