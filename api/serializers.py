@@ -17,16 +17,17 @@ class ExerciseSerializer(serializers.ModelSerializer):
 
 class WorkoutPlanSerializer(serializers.ModelSerializer):
     exercises = serializers.PrimaryKeyRelatedField(
-        many=True, queryset=Exercise.objects.all())
+        queryset=Exercise.objects.all(), many=True)
 
     class Meta:
         model = WorkoutPlan
-        fields = ['id', 'user', 'name', 'description',
-                  'exercises', 'created_at', 'updated_at']
+        fields = ['name', 'exercises', 'user']
         read_only_fields = ['user']
 
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
 
-# Added for completeness
+
 class WorkoutPlanExerciseSerializer(serializers.ModelSerializer):
     class Meta:
         model = WorkoutPlanExercise
