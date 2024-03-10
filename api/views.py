@@ -21,6 +21,12 @@ class WorkoutPlanViewSet(viewsets.ModelViewSet):
     serializer_class = WorkoutPlanSerializer
     permission_classes = [IsAuthenticated]
 
+    def get_queryset(self):
+        return WorkoutPlan.objects.filter(user=self.request.user)
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
 
 class ProgressTrackingViewSet(viewsets.ModelViewSet):
     queryset = ProgressTracking.objects.all()

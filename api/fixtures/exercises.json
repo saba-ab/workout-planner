@@ -1,0 +1,252 @@
+[
+  {
+    "model": "api.exercise",
+    "pk": 1,
+    "fields": {
+      "name": "Push-up",
+      "description": "A push-up is a common calisthenics exercise that primarily targets the chest, shoulders, and triceps.",
+      "instructions": "Start in a high plank position with your hands shoulder-width apart. Lower your body until your chest almost touches the floor. Push through your hands to return to the starting position.",
+      "target_muscles": "Chest, Shoulders, Triceps"
+    }
+  },
+  {
+    "model": "api.exercise",
+    "pk": 2,
+    "fields": {
+      "name": "Squat",
+      "description": "The squat is a compound, full-body exercise that primarily targets the muscles of the thighs, hips, buttocks, quads, hamstrings, and lower back.",
+      "instructions": "Stand with feet a little wider than shoulder-width apart. Bend your knees and lower your body as if sitting back into a chair, keeping your back straight. Return to the starting position.",
+      "target_muscles": "Quads, Hamstrings, Glutes, Lower Back"
+    }
+  },
+  {
+    "model": "api.exercise",
+    "pk": 3,
+    "fields": {
+      "name": "Lunge",
+      "description": "Lunges are a unilateral exercise that strengthen the legs and glutes, with a focus on improving balance and stability.",
+      "instructions": "Step forward with one leg, lowering your hips until both knees are bent at about a 90-degree angle. Make sure your front knee is above your ankle. Push back up to the starting position.",
+      "target_muscles": "Quads, Hamstrings, Glutes"
+    }
+  },
+  {
+    "model": "api.exercise",
+    "pk": 4,
+    "fields": {
+      "name": "Plank",
+      "description": "The plank exercise is a core strength exercise that involves maintaining a position similar to a push-up for the maximum possible time.",
+      "instructions": "Position yourself in a push-up form but with your forearms on the ground. Keep your body straight from head to heels. Hold this position.",
+      "target_muscles": "Core, Shoulders, Glutes"
+    }
+  },
+  {
+    "model": "api.exercise",
+    "pk": 5,
+    "fields": {
+      "name": "Deadlift",
+      "description": "The deadlift is a weight training exercise where one lifts a loaded barbell off the ground from a stabilized bent-over position.",
+      "instructions": "Stand with feet hip-width apart, with the barbell in front of you. Bend at your hips and knees, grab the bar with both hands. Lift the bar by straightening your hips and knees. Return the bar to the ground.",
+      "target_muscles": "Glutes, Lower Back, Hamstrings, Core"
+    }
+  },
+  {
+    "model": "api.exercise",
+    "pk": 6,
+    "fields": {
+      "name": "Bicep Curl",
+      "description": "The bicep curl is a resistance exercise that targets the bicep muscles through flexion of the elbow.",
+      "instructions": "Hold a dumbbell in each hand at arm's length. Keep your elbows close to your torso and curl the weights while contracting your biceps. Return to starting position.",
+      "target_muscles": "Biceps"
+    }
+  },
+  {
+    "model": "api.exercise",
+    "pk": 7,
+    "fields": {
+      "name": "Tricep Dip",
+      "description": "Tricep dips target the tricep muscles by using body weight while lowering and raising the body with the support of the arms.",
+      "instructions": "Position your hands shoulder-width apart on a secured bench or stable chair. Slide your butt off the front of the bench with your legs extended in front of you. Straighten your arms, keeping a little bend in your elbows. Slowly bend your elbows to lower your body toward the floor until your elbows are at about a 90-degree angle. Press down into the bench to straighten your elbows, returning to the starting position.",
+      "target_muscles": "Triceps"
+    }
+  },
+  {
+    "model": "api.exercise",
+    "pk": 8,
+    "fields": {
+      "name": "Bench Press",
+      "description": "The bench press is a key piece of equipment in weight training, bodybuilding, and powerlifting, which focuses primarily on the pectoral muscles.",
+      "instructions": "Lie back on a bench with a barbell grasped in both hands. Lower the barbell to chest level, then press the barbell upwards, extending the arms fully without locking the elbows. Return to the starting position.",
+      "target_muscles": "Chest, Shoulders, Triceps"
+    }
+  },
+  {
+    "model": "api.exercise",
+    "pk": 9,
+    "fields": {
+      "name": "Leg Press",
+      "description": "The leg press is a weight training exercise in which the individual pushes a weight or resistance away from them using their legs.",
+      "instructions": "Sit down on a leg press machine with your feet on the crosspiece about shoulder width apart. Extend your legs fully without locking your knees. Slowly lower the weight until your knees are at about 90 degrees, then push the weight back to the starting position.",
+      "target_muscles": "Quads, Glutes, Hamstrings"
+    }
+  },
+  {
+    "model": "api.exercise",
+    "pk": 10,
+    "fields": {
+      "name": "Pull-up",
+      "description": "The pull-up is an upper-body compound pulling exercise where the body is suspended by the hands, pulling up.",
+      "instructions": "Grab the pull-up bar with your palms facing outward and hands shoulder-width apart. Pull yourself up until your chin is level with the bar, then slowly lower back to the starting position.",
+      "target_muscles": "Back, Biceps, Shoulders"
+    }
+  },
+  {
+    "model": "api.exercise",
+    "pk": 11,
+    "fields": {
+      "name": "Tuck Jump",
+      "description": "A plyometric exercise enhancing lower body power and cardiovascular endurance.",
+      "instructions": "Initiate a semi-squat stance and explosively jump, tucking knees towards the chest. Land softly and immediately prepare for the next repetition.",
+      "target_muscles": "Quadriceps, Core"
+    }
+  },
+  {
+    "model": "api.exercise",
+    "pk": 12,
+    "fields": {
+      "name": "Burpee",
+      "description": "A high-intensity full-body exercise promoting aerobic fitness and strength.",
+      "instructions": "Begin in a standing position, drop into a squat with hands on the ground, kick feet back into a plank, perform a push-up, return to squat and leap upwards.",
+      "target_muscles": "Full Body"
+    }
+  },
+  {
+    "model": "api.exercise",
+    "pk": 13,
+    "fields": {
+      "name": "Mountain Climber",
+      "description": "A cardio exercise simulating the climbing motion, engaging multiple muscle groups.",
+      "instructions": "From a plank position, rapidly draw one knee at a time towards the chest, alternating legs in a running motion.",
+      "target_muscles": "Core, Shoulders, Hamstrings"
+    }
+  },
+  {
+    "model": "api.exercise",
+    "pk": 14,
+    "fields": {
+      "name": "Russian Twist",
+      "description": "A core exercise targeting the oblique muscles with a rotational movement.",
+      "instructions": "Sit on the floor, knees bent, feet off the ground. Twist the torso side to side, optionally holding a weight for increased resistance.",
+      "target_muscles": "Obliques, Core"
+    }
+  },
+  {
+    "model": "api.exercise",
+    "pk": 15,
+    "fields": {
+      "name": "Box Jump",
+      "description": "Develops explosive power and strength in the lower body through jump training.",
+      "instructions": "Stand before a sturdy box of appropriate height. Perform a preparatory squat, then jump onto the box with both feet. Step back down and repeat.",
+      "target_muscles": "Legs, Glutes"
+    }
+  },
+  {
+    "model": "api.exercise",
+    "pk": 16,
+    "fields": {
+      "name": "Lat Pulldown",
+      "description": "A strength exercise focusing on the latissimus dorsi muscles, enhancing back width.",
+      "instructions": "Seated at a lat pulldown station, grasp the bar wider than shoulder width. Pull the bar down to the chest, then slowly release.",
+      "target_muscles": "Latissimus Dorsi, Biceps"
+    }
+  },
+  {
+    "model": "api.exercise",
+    "pk": 17,
+    "fields": {
+      "name": "Leg Curl",
+      "description": "Isolates the hamstrings, beneficial for leg curling strength and flexibility.",
+      "instructions": "Lying prone on a leg curl machine, hook your ankles under the padded bar. Curl the legs towards your buttocks, then return to start.",
+      "target_muscles": "Hamstrings"
+    }
+  },
+  {
+    "model": "api.exercise",
+    "pk": 18,
+    "fields": {
+      "name": "Calf Raise",
+      "description": "Strengthens the calf muscles and improves ankle stability.",
+      "instructions": "Stand on the edge of a step or platform. Raise your heels as high as possible, then lower them below the level of the step.",
+      "target_muscles": "Calves"
+    }
+  },
+  {
+    "model": "api.exercise",
+    "pk": 19,
+    "fields": {
+      "name": "Skull Crusher",
+      "description": "Targets the triceps muscles through an elbow extension movement.",
+      "instructions": "Lying on a bench, hold a weight with arms extended. Bend the elbows to lower the weight towards the head, then extend back to start.",
+      "target_muscles": "Triceps"
+    }
+  },
+  {
+    "model": "api.exercise",
+    "pk": 20,
+    "fields": {
+      "name": "Seated Row",
+      "description": "Engages the back muscles, particularly useful for posture correction.",
+      "instructions": "Seated at a rowing station, pull the handles towards the lower abdomen while squeezing the shoulder blades together, then return.",
+      "target_muscles": "Middle Back, Biceps"
+    }
+  },
+  {
+    "model": "api.exercise",
+    "pk": 21,
+    "fields": {
+      "name": "Shoulder Press",
+      "description": "A compound exercise enhancing shoulder width and press strength.",
+      "instructions": "Seated or standing, press a pair of dumbbells from shoulder height to above the head until arms are extended. Lower back to start.",
+      "target_muscles": "Deltoids, Triceps"
+    }
+  },
+  {
+    "model": "api.exercise",
+    "pk": 22,
+    "fields": {
+      "name": "Flutter Kicks",
+      "description": "An abdominal exercise that targets the lower core muscles.",
+      "instructions": "Lie on your back, extend your legs. Raise them off the ground and make small, rapid vertical kicks.",
+      "target_muscles": "Lower Abdominals"
+    }
+  },
+  {
+    "model": "api.exercise",
+    "pk": 23,
+    "fields": {
+      "name": "Wall Sit",
+      "description": "An isometric exercise for building strength and endurance in the lower body.",
+      "instructions": "Lean against a wall, slide down into a seated position with thighs parallel to the ground. Hold the position.",
+      "target_muscles": "Quadriceps, Glutes"
+    }
+  },
+  {
+    "model": "api.exercise",
+    "pk": 24,
+    "fields": {
+      "name": "Crunch",
+      "description": "A classic core exercise that targets the abdominal muscles.",
+      "instructions": "Lie on your back, knees bent. Curl the shoulders towards the pelvis, keeping the hands behind or beside the neck. Lower and repeat.",
+      "target_muscles": "Abdominals"
+    }
+  },
+  {
+    "model": "api.exercise",
+    "pk": 25,
+    "fields": {
+      "name": "Reverse Crunch",
+      "description": "Focuses on the lower abdominals, reversing the movement of traditional crunches.",
+      "instructions": "Lie on your back, lift legs to a 90-degree angle. Contract the abs to pull the hips off the floor, bringing knees towards the chest.",
+      "target_muscles": "Lower Abdominals"
+    }
+  }
+]
