@@ -1,13 +1,13 @@
 from django.shortcuts import render
-from rest_framework import viewsets, status
+from rest_framework import viewsets, status, generics
 from .models import Exercise, WorkoutPlan, ProgressTracking
-from .serializers import ExerciseSerializer, WorkoutPlanSerializer, ProgressTrackingSerializer
+from .serializers import ExerciseSerializer, WorkoutPlanSerializer, ProgressTrackingSerializer, UserSerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
-from .serializers import UserSerializer
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
-# Create your views here.
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.settings import api_settings
 
 
 class ExerciseViewSet(viewsets.ModelViewSet):
@@ -17,7 +17,6 @@ class ExerciseViewSet(viewsets.ModelViewSet):
 
 
 class WorkoutPlanViewSet(viewsets.ModelViewSet):
-    queryset = WorkoutPlan.objects.all()
     serializer_class = WorkoutPlanSerializer
     permission_classes = [IsAuthenticated]
 
@@ -29,9 +28,11 @@ class WorkoutPlanViewSet(viewsets.ModelViewSet):
 
 
 class ProgressTrackingViewSet(viewsets.ModelViewSet):
-    queryset = ProgressTracking.objects.all()
     serializer_class = ProgressTrackingSerializer
     permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return ProgressTracking.objects.filter(user=self.request.user)
 
 
 class UserCreate(APIView):
@@ -39,13 +40,14 @@ class UserCreate(APIView):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             user = serializer.save()
-            if user:
-                return Response(serializer.data, status=status.HTTP_201_CREATED)
-
+            token = Token.objects.get_or_create(user=user)
+            return Response({'token': token.key, 'user_id': user.id, 'username': user.username}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class Logout(APIView):
+    permission_classes = [IsAuthenticated]
+
     def post(self, request):
         request.user.auth_token.delete()
-        return Response(status=status.HTTP_200_OK)
+        return Response({"message": "Successfully logged out."}, status=status.HTTP_200_OK)
