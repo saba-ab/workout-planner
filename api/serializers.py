@@ -1,9 +1,7 @@
 from rest_framework import serializers
 from .models import Exercise, WorkoutPlan, WorkoutPlanExercise, ProgressTracking
-from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password
-from rest_framework import serializers
 
 User = get_user_model()
 
@@ -11,28 +9,37 @@ User = get_user_model()
 class ExerciseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Exercise
-        fields = ['id', 'name', 'description', 'instructions',
-                  'target_muscles']
-
-
-class WorkoutPlanSerializer(serializers.ModelSerializer):
-    exercises = serializers.PrimaryKeyRelatedField(
-        queryset=Exercise.objects.all(), many=True)
-
-    class Meta:
-        model = WorkoutPlan
-        fields = ['id', 'name', 'exercises', 'user']
-        read_only_fields = ['user']
-
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+        fields = ['id', 'name', 'description',
+                  'instructions', 'target_muscles']
 
 
 class WorkoutPlanExerciseSerializer(serializers.ModelSerializer):
+    exercise_id = serializers.PrimaryKeyRelatedField(
+        queryset=Exercise.objects.all(), source='exercise')
+
     class Meta:
         model = WorkoutPlanExercise
-        fields = ['id', 'workout_plan', 'exercise',
-                  'repetitions', 'sets', 'duration']
+        fields = ['exercise_id', 'repetitions', 'sets', 'duration']
+
+
+class WorkoutPlanSerializer(serializers.ModelSerializer):
+    exercises = WorkoutPlanExerciseSerializer(
+        source='workoutplanexercise_set', many=True)
+    user = serializers.ReadOnlyField(
+        source='user.username')  # Display the username
+
+    class Meta:
+        model = WorkoutPlan
+        fields = ['id', 'name', 'description', 'exercises', 'user']
+        read_only_fields = ['user']
+
+    def create(self, validated_data):
+        exercises_data = validated_data.pop('workoutplanexercise_set')
+        workout_plan = WorkoutPlan.objects.create(**validated_data)
+        for exercise_data in exercises_data:
+            WorkoutPlanExercise.objects.create(
+                workout_plan=workout_plan, **exercise_data)
+        return workout_plan
 
 
 class ProgressTrackingSerializer(serializers.ModelSerializer):
