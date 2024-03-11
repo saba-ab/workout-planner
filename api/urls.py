@@ -9,7 +9,6 @@ router.register(r'workoutplans', views.WorkoutPlanViewSet,
                 basename='workoutplan')
 router.register(r'progresstracking',
                 views.ProgressTrackingViewSet, basename='progresstracking')
-
 urlpatterns = [
     path('', include(router.urls)),
 ]
