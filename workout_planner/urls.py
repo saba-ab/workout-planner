@@ -8,7 +8,7 @@ from rest_framework import permissions
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Episyche Technologies",
+        title="Workout planner",
         default_version='v1',
         description="API documentation for workout planner",
     ),

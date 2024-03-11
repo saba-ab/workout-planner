@@ -30,6 +30,9 @@ class ProgressTrackingViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         return ProgressTracking.objects.filter(user=self.request.user)
 
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
 
 class UserCreate(APIView):
     def post(self, request):
