@@ -6,6 +6,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
 
 
 class ExerciseViewSet(viewsets.ModelViewSet):
@@ -35,6 +37,16 @@ class ProgressTrackingViewSet(viewsets.ModelViewSet):
 
 
 class UserCreate(APIView):
+    serializer_class = UserSerializer
+
+    @swagger_auto_schema(request_body=openapi.Schema(
+        type=openapi.TYPE_OBJECT,
+        properties={
+            'username': openapi.Schema(type=openapi.TYPE_STRING, example='sweeft_dev'),
+            'password': openapi.Schema(type=openapi.TYPE_STRING, example='sweeft1234'),
+            'email': openapi.Schema(type=openapi.TYPE_STRING, example='sweeft@gmail.com'),
+        }
+    ))
     def post(self, request):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
